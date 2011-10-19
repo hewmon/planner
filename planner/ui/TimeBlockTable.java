@@ -29,7 +29,6 @@ public class TimeBlockTable extends JComponent {
     private JButton[][] buttons;
     public TimeBlockTable() {
         setLayout(new GridLayout(ROW_HEADERS.length + 1, COLUMN_HEADERS.length + 1));
-        System.out.println(ROW_HEADERS.length);
         buttons = createButtons();
         initGrid();
     }
