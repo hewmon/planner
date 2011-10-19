@@ -1,5 +1,5 @@
 #!/bin/bash
-javac -classpath .:ui \
+javac \
     planner/Application.java \
     planner/Weekday.java \
     planner/ui/MainWindow.java \
