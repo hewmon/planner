@@ -1,5 +1,7 @@
 package planner.ui;
+import planner.*;
 import javax.swing.*;
+import java.awt.Color;
 public class MainWindow extends JFrame {
     private static String NAME = "Computer use planning and monitoring";
     public MainWindow() {
@@ -16,7 +18,7 @@ public class MainWindow extends JFrame {
             throw new RuntimeException(e);
         }
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        add(new TimeBlockTable());
+        add(new TimeBlockTable(TimeBlockState.ALLOWED));
         pack();
     }
 }
