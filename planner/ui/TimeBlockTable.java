@@ -1,22 +1,13 @@
 package planner.ui;
+import planner.*;
 import javax.swing.*;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import planner.Weekday;
 public class TimeBlockTable extends JComponent {
-    private static final String[] COLUMN_HEADERS = createDayNames();
-    private static final String[] ROW_HEADERS = createTimeBlocks();
-    private static String[] createDayNames() {
-        String[] dayNames = new String[Weekday.DAYS.length];
-        for(int i = 0; i < Weekday.DAYS.length; i++) {
-            dayNames[i] = Weekday.DAYS[i].getName();
-        }
-        return dayNames;
-    }
-    private static String[] createTimeBlocks() {
-        String[] timeBlocks = {"a", "b", "c"};
-        return timeBlocks;
-    }
+    private static final Weekday[] COLUMN_HEADERS = Weekday.DAYS;
+    private static final TimeBlock[] ROW_HEADERS = TimeBlock.LIST;
+    
     private static JButton[][] createButtons() {
         JButton[][] buttons = new JButton[ROW_HEADERS.length][COLUMN_HEADERS.length];
         for(int i = 0; i < buttons.length; i++) {
@@ -36,9 +27,9 @@ public class TimeBlockTable extends JComponent {
     private void initGrid() {
         add(new Box.Filler(new Dimension(), new Dimension(), new Dimension()));
         for(int i = 0; i < COLUMN_HEADERS.length; i++)
-            add(new JLabel(COLUMN_HEADERS[i], JLabel.CENTER));
+            add(new JLabel(COLUMN_HEADERS[i].toString(), JLabel.CENTER));
         for(int i = 0; i < buttons.length; i++) {
-            add(new JLabel(ROW_HEADERS[i], JLabel.CENTER));
+            add(new JLabel(ROW_HEADERS[i].toString(), JLabel.CENTER));
             for(int j = 0; j < buttons[0].length; j++)
                 add(buttons[i][j]);
         }

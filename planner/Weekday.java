@@ -31,4 +31,8 @@ public enum Weekday {
     public int getOrdinal() {
         return ordinal;
     }
+    
+    public String toString() {
+        return getName();
+    }
 }
