@@ -27,8 +27,8 @@ public class TimeBlock {
     public static TimeBlock fromString(String s) {
         Scanner scan = new Scanner(s);
         scan.useDelimiter(Pattern.compile(":"));
-        int minutes = scan.nextInt();
         int hours = scan.nextInt();
+        int minutes = scan.nextInt();
         return fromTime(hours, minutes);
     }
     
