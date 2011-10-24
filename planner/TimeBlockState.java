@@ -1,27 +1,35 @@
 package planner;
 import java.awt.Color;
 public enum TimeBlockState {
-    ALLOWED("Allowed", Color.GREEN, 0),
-    ALLOWED_EMAIL("Allowed for email", Color.BLUE, 1),
-    ALLOWED_BROWSING("Allowed for browsing", new Color(128, 0, 128), 2),
-    ALLOWED_GAMES("Allowed for games", new Color(150, 75, 0), 3),
-    DENIED("Denied", Color.RED, 4);
+    ALLOWED("Allowed", "Allowed for everything", Color.GREEN, 0),
+    ALLOWED_BROWSING("Browsing", "Allowed for other browsing activities", Color.GRAY, 1),
+    ALLOWED_SOCIAL("Social", "Allowed for social activities such as facebook and email", Color.BLUE, 2),
+    ALLOWED_GAMING("Gaming", "Allowed for gaming", new Color(128, 0, 128), 3),
+    ALLOWED_SHOPPING("Shopping", "Allowed for shopping activities", Color.YELLOW, 4),
+    DENIED("Denied", "Denied for Everything", Color.RED, 5);
     
     private static final TimeBlockState[] STATES = {
         ALLOWED,
-        ALLOWED_EMAIL,
         ALLOWED_BROWSING,
-        ALLOWED_GAMES,
+        ALLOWED_SOCIAL,
+        ALLOWED_GAMING,
+        ALLOWED_SHOPPING,
         DENIED
     };
     
     private final Color color;
     private final int ordinal;
     private final String description;
-    TimeBlockState(String description, Color color, int ordinal) {
+    private final String name;
+    TimeBlockState(String name, String description, Color color, int ordinal) {
+        this.name = name;
         this.description = description;
         this.color = color;
         this.ordinal = ordinal;
+    }
+    
+    public String getName() {
+        return name;
     }
     
     public String getDescription() {
