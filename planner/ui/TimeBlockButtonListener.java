@@ -10,7 +10,6 @@ class TimeBlockButtonListener extends BasicButtonListener {
     public void mouseClicked(MouseEvent e) {
         TimeBlockButton button = (TimeBlockButton) e.getSource();
         TimeBlockButtonModel model = button.getModel();
-        System.out.println("mouse clicked, state changed from " + model.getState().toString() + "to " + model.getState().successor().toString());
         model.setState(model.getState().successor());
         button.repaint();
     }

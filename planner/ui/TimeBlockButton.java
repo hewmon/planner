@@ -9,7 +9,6 @@ public class TimeBlockButton extends AbstractButton {
     
     private final ChangeListener modelChangeListener = new ChangeListener() {
         public void stateChanged(ChangeEvent e) {
-            System.out.println("state changed");
             updateBackground();
         }
     };
@@ -21,7 +20,6 @@ public class TimeBlockButton extends AbstractButton {
     }
     
     private void updateBackground() {
-        System.out.println("color set to " + getState().getColor());
         setBackground(getState().getColor());
     }
     

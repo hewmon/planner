@@ -25,7 +25,6 @@ public enum TimeBlockState {
     }
     
     public TimeBlockState successor() {
-        System.out.println("ordinal " + ordinal);
         return STATES[(ordinal + 1) % STATES.length];
     }
 }
