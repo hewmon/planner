@@ -18,7 +18,26 @@ public class MainWindow extends JFrame {
             throw new RuntimeException(e);
         }
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        add(new TimeBlockTable(TimeBlockState.ALLOWED));
+        add(createTabbedPane());
         pack();
+    }
+    
+    private JComponent createTabbedPane() {
+        JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.addTab("Monitor", null, createMonitorPage());
+        tabbedPane.addTab("Plan", null, createMonitorPage());
+        return tabbedPane;
+    }
+    
+    private JComponent createMonitorPage() {
+        return createTimeBlockTable();
+    }
+    
+    private JComponent createPlanPage() {
+        return createTimeBlockTable();
+    }
+    
+    private JComponent createTimeBlockTable() {
+        return new TimeBlockTable(TimeBlockState.ALLOWED);
     }
 }
