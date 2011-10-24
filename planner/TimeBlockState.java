@@ -1,11 +1,11 @@
 package planner;
 import java.awt.Color;
 public enum TimeBlockState {
-    ALLOWED(Color.GREEN, 0),
-    ALLOWED_EMAIL(Color.BLUE, 1),
-    ALLOWED_BROWSING(new Color(128, 0, 128), 2),
-    ALLOWED_GAMES(new Color(150, 75, 0), 3),
-    DENIED(Color.RED, 4);
+    ALLOWED("Allowed", Color.GREEN, 0),
+    ALLOWED_EMAIL("Allowed for email", Color.BLUE, 1),
+    ALLOWED_BROWSING("Allowed for browsing", new Color(128, 0, 128), 2),
+    ALLOWED_GAMES("Allowed for games", new Color(150, 75, 0), 3),
+    DENIED("Denied", Color.RED, 4);
     
     private static final TimeBlockState[] STATES = {
         ALLOWED,
@@ -17,9 +17,15 @@ public enum TimeBlockState {
     
     private final Color color;
     private final int ordinal;
-    TimeBlockState(Color color, int ordinal) {
+    private final String description;
+    TimeBlockState(String description, Color color, int ordinal) {
+        this.description = description;
         this.color = color;
         this.ordinal = ordinal;
+    }
+    
+    public String getDescription() {
+        return description;
     }
     
     public Color getColor() {
